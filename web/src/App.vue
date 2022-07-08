@@ -1,30 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <div>
+    <div>姓名:{{name}}</div>
+    <div>分数:{{rate}}</div>
+  </div>
   <router-view/>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<script>
+import $ from 'jquery';
+import { ref} from "vue";
+export default {
+  name:"app",
+  setup:()=>{
+   let name=ref("");
+   let  rate=ref("");
+   $.ajax({
+     url:"http://localhost:9090/pk/get/",
+     type:"get",
+     success: resp=>{
+        name.value=resp.name;
+        rate.value=resp.rate;
+     }
+   })
+   return {
+     name,rate
+   }
+ }
 }
+</script>
 
-nav {
-  padding: 30px;
-}
+<style scoped>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
