@@ -29,6 +29,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
+body{
+  background-image: url("@/assets/back.jpg");
+  background-size: cover;
 
+}
 </style>
