@@ -1,31 +1,15 @@
 <template>
-  <div>
-    <div>姓名:{{name}}</div>
-    <div>分数:{{rate}}</div>
-  </div>
+  <NavBar/>
   <router-view/>
 </template>
 
 <script>
-import $ from 'jquery';
-import { ref} from "vue";
+import NavBar from "@/components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap"
 export default {
   name:"app",
-  setup:()=>{
-   let name=ref("");
-   let  rate=ref("");
-   $.ajax({
-     url:"http://localhost:9090/pk/get/",
-     type:"get",
-     success: resp=>{
-        name.value=resp.name;
-        rate.value=resp.rate;
-     }
-   })
-   return {
-     name,rate
-   }
- }
+  components: {NavBar},
 }
 </script>
 
@@ -33,6 +17,5 @@ export default {
 body{
   background-image: url("@/assets/back.jpg");
   background-size: cover;
-
 }
 </style>
