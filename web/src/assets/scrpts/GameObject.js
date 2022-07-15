@@ -20,7 +20,7 @@ export class GameObject{
         this.on_destroy();
         for(let i in AcGameObject){
             const obj=AcGameObject[i];
-            if(obj==this){
+            if(obj===this){
                 AcGameObject.splice(i);
                 break;
             }
@@ -39,6 +39,7 @@ const step=timestamp=>{
             obj.update();
         }
     }
+    last_timestamp=timestamp;
     requestAnimationFrame(step)
 }
 
