@@ -3,6 +3,8 @@ package com.kob.backend.controller.user;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.kob.backend.entity.User;
 import com.kob.backend.mapper.UserMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,7 +33,9 @@ public class UserController {
     public String addUser(@PathVariable int userId,
                           @PathVariable String username,
                           @PathVariable String password){
-        User user=new User(userId,username,password);
+        PasswordEncoder passwordEncoder=new BCryptPasswordEncoder();
+        String encodedPassword=passwordEncoder.encode(password);
+        User user=new User(userId,username,encodedPassword);
         userMapper.insert(user);
         return "Yes";
     }
@@ -41,7 +45,6 @@ public class UserController {
       userMapper.deleteById(userId);
       return  "Yes";
     }
-
 
 
 }
