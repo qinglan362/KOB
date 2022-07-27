@@ -24,5 +24,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             throw  new RuntimeException("用户不存在");
         return new UserDetailsImpl(user);
     }
-
 }

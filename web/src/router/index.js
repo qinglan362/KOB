@@ -4,6 +4,8 @@ import PkIndexView from "@/views/pk/PkIndexView";
 import RankListIndexView from "@/views/ranklist/RankListIndexView";
 import RecordIndexView from "@/views/record/RecordIndexView";
 import UserBotsIndexView from "@/views/user/bot/UserBotsIndexView";
+import LoginView from "@/views/user/acount/LoginView";
+import RegisterView from "@/views/user/acount/RegisterView";
 const routes = [
   {
     path:"/",
@@ -14,6 +16,16 @@ const routes = [
     path:"/pk/",
     name:"pk_index",
     component:PkIndexView,
+  },
+  {
+    path:"/user/account/login/",
+    name:"login",
+    component:LoginView,
+  },
+  {
+    path:"/user/account/register/",
+    name:"register",
+    component:RegisterView,
   },
   {
     path:"/ranklist/",
