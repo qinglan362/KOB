@@ -18,3 +18,53 @@ public class GetListController {
         return getListService.getList();
     }
 }
+
+
+//// $.ajax({
+////   url:"http://localhost:9090/user/bot/remove/",
+////   type:'POST',
+////   data:{
+////   bot_id:1,
+////   },
+////   headers:{
+////     Authorization: "Bearer "+store.state.user.token,
+////   },
+////   success(resp){
+////     console.log(resp);
+////   },
+////   error(resp){
+////     console.log(resp);
+////   }
+//// })
+//// $.ajax({
+////   url:"http://localhost:9090/user/bot/update/",
+////   type:'POST',
+////   data:{
+////     bot_id:7,
+////     title:"xxx",
+////     description:"yyy",
+////     content:"代码",
+////   },
+////   headers:{
+////     Authorization: "Bearer "+store.state.user.token,
+////   },
+////   success(resp){
+////     console.log(resp);
+////   },
+////   error(resp){
+////     console.log(resp);
+////   }
+//// })
+//    $.ajax({
+//            url:"http://localhost:9090/user/bot/getlist/",
+//            type:'GET',
+//            headers:{
+//            Authorization: "Bearer "+store.state.user.token,
+//            },
+//            success(resp){
+//            console.log(resp);
+//            },
+//            error(resp){
+//            console.log(resp);
+//            }
+//            })

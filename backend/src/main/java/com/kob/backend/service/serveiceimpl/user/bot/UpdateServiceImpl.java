@@ -28,10 +28,10 @@ public class UpdateServiceImpl implements UpdateService {
                         .getAuthentication();
         UserDetailsImpl loginUser=(UserDetailsImpl) authenticationToken.getPrincipal();
         User user=loginUser.getUser();
-        Integer bot_id=Integer.parseInt(data.get("bot_id"));
-        String content=data.get("content");
+        int bot_id=Integer.parseInt(data.get("bot_id"));
         String title=data.get("title");
         String description=data.get("description");
+        String content=data.get("content");
         Map<String,String> map=new HashMap<>();
         if(title==null||title.length()==0) {
             map.put("error_message","标题不能为空");
@@ -78,7 +78,7 @@ public class UpdateServiceImpl implements UpdateService {
                 new Date()
         );
         botMapper.updateById(new_bot);
-        map.put("error_message","successs");
+        map.put("error_message","success");
         return map;
     }
 }
