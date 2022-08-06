@@ -13,6 +13,9 @@
           <li class="nav-item">
             <router-link :class="route_name=='record_index'?'nav-link active':'nav-link'" :to="{name:'record_index'}">排行榜</router-link>
           </li>
+          <li class="nav-item">
+            <router-link :class="route_name=='SmallGame'?'nav-link active':'nav-link'" :to="{name:'SmallGame'}">For...</router-link>
+          </li>
         </ul>
         <ul class="navbar-nav" v-if="$store.state.user.is_login">
           <li class="nav-item dropdown">
@@ -20,7 +23,7 @@
               {{$store.state.user.username}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><router-link class="dropdown-item" :to="{name:'userbot_index'}">My Bot</router-link></li>
+              <li><router-link class="dropdown-item" :to="{name:'userbot_index'}">My(Bot&PerInfo)</router-link></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" @click="logout" href="#">Log Out</a></li>
             </ul>

@@ -8,6 +8,9 @@ export default {
         token: "",
         is_login: false,
         pulling_info:true,
+        personalsignature:"",
+        age:"",
+        hobby:"",
     },
     getters: {
     },
@@ -17,6 +20,9 @@ export default {
             state.username = user.username;
             state.photo = user.photo;
             state.is_login = user.is_login;
+            state.personalsignature=user.personalsignature;
+            state.age=user.age;
+            state.hobby=user.hobby;
         },
         updateToken(state, token) {
             state.token = token;
@@ -27,6 +33,9 @@ export default {
             state.photo = "";
             state.token = "";
             state.is_login = false;
+            state.personalsignature="";
+            state.age="";
+            state.hobby="";
         },
         updatePullingInfo(state,pulling_info){
            state.pulling_info=pulling_info;

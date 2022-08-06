@@ -1,14 +1,12 @@
 <template>
 <div class="container">
   <div class="row">
-    <div class="col-3">
-      <div class="card" style="margin-top: 20px">
-        <div class="card-body">
-          <img :src="$store.state.user.photo" style="width: 100%">
-        </div>
-      </div>
+    <div class="col-4">
+<!--      名片部分-->
+    <UserProfile></UserProfile>
+
     </div>
-    <div class="col-9">
+    <div class="col-8">
       <div class="card" style="margin-top: 20px">
         <div class="card-header">
           <span style="font-size: 120%">我的bot</span>
@@ -59,6 +57,7 @@
            <thead>
             <tr>
               <th>名称</th>
+              <th>Bot简介</th>
               <th>创建时间</th>
               <th>操作</th>
             </tr>
@@ -66,10 +65,11 @@
           <tbody>
           <tr v-for="bot in bots" :key="bot.id">
               <td>{{bot.title}}</td>
-              <td>{{bot.createtime}}</td>
+              <td>{{bot.description}}</td>
+             <td>{{bot.createtime}}</td>
                <td>
                  <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" :data-bs-target="'#updatebot-'+bot.id">修改</button>
-                 <button type="button" class="btn btn-danger" @click="remove_bot(bot)">删除</button>
+                 <button type="button" class="btn btn-danger" style="margin-left: 20px" @click="remove_bot(bot)">删除</button>
 
                  <!-- Modal -->
                  <div class="modal fade" :id="'updatebot-'+bot.id" tabindex="-1" >
@@ -102,8 +102,8 @@
                        </div>
                        <div class="modal-footer">
                          <div  class="error_message">{{ bot.error_message }}</div>
-                         <button type="button" class="btn btn-primary" @click="update_bot(bot)">提交</button>
-                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                         <button type="button" class="btn btn-primary"  @click="update_bot(bot)">提交</button>
+                         <button type="button" class="btn btn-secondary" style="margin-left: 20px" data-bs-dismiss="modal">取消</button>
                        </div>
                      </div>
                    </div>
@@ -128,10 +128,12 @@ import {useStore} from "vuex";
  import {Modal} from 'bootstrap/dist/js/bootstrap';
 import { VAceEditor } from 'vue3-ace-editor';
 import ace from 'ace-builds';
+import UserProfile from "@/components/UserProfile";
 
 export default {
   name: "UserBotsIndexView",
   components:{
+    UserProfile,
     VAceEditor
   },
   setup(){
@@ -150,6 +152,7 @@ export default {
     });
 
     const refresh_bot=()=>{
+      console.log(store.state.user.personalsignature);
       $.ajax({
         url:"http://localhost:9090/user/bot/getlist/",
         type:'GET',

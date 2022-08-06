@@ -6,12 +6,13 @@ import RecordIndexView from "@/views/record/RecordIndexView";
 import UserBotsIndexView from "@/views/user/bot/UserBotsIndexView";
 import LoginView from "@/views/user/acount/LoginView";
 import RegisterView from "@/views/user/acount/RegisterView";
+import SmallGame from "@/views/smallgame/SmallGame";
 import store from "@/store";
 const routes = [
   {
     path:"/",
     name:"home",
-    redirect:"/pk/",
+     redirect:"/pk/",
     meta:{
       requestAuth:true,
     }
@@ -28,6 +29,14 @@ const routes = [
     path:"/user/account/login/",
     name:"login",
     component:LoginView,
+    meta:{
+      requestAuth:false,
+    }
+  },
+  {
+    path:"/smallgame/",
+    name:"SmallGame",
+    component:SmallGame,
     meta:{
       requestAuth:false,
     }
