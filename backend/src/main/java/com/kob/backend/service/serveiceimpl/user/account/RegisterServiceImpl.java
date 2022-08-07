@@ -80,6 +80,7 @@ public class RegisterServiceImpl implements RegisterService {
             0,
             "主人觉得是个秘密哟"
             );
+
         userMapper.insert(user);
         map.put("error_message", "success");
         return map;
