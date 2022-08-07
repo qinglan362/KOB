@@ -152,7 +152,6 @@ export default {
     });
 
     const refresh_bot=()=>{
-      console.log(store.state.user.personalsignature);
       $.ajax({
         url:"http://localhost:9090/user/bot/getlist/",
         type:'GET',

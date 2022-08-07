@@ -32,7 +32,7 @@ export default {
   name: "RegisterView",
   components: {ContentFiled},
   setup(){
-  let username=ref('');
+    let username=ref('');
     let password=ref('');
     let confirmedPassword=ref('');
     let error_message=ref('');
