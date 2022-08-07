@@ -15,6 +15,7 @@
           <div style="margin-top: 5px">爱好:{{$store.state.user.hobby}}</div>
           <button style="width: 100%" type="button" class="btn btn-primary float-end"  data-bs-toggle="modal" data-bs-target="#updateperinfo">
             修改个人信息
+
           </button>
           <!-- Modal -->
           <div class="modal fade" id="updateperinfo" tabindex="-1" >
