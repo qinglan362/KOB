@@ -30,7 +30,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         String personalsignature=data.get("personalsignature");
         String hobby=data.get("hobby");
         Map<String,String> map=new HashMap<>();
-        if(age<0){
+        if(age<=0){
             map.put("error_message","年龄不能小于0");
             return map;
         }
@@ -42,8 +42,12 @@ public class UserInfoServiceImpl implements UserInfoService {
             map.put("error_message","个性签名不得超过100字");
             return map;
         }
-        if(hobby.length()>100){
-            map.put("error_message","爱好不得超过100字");
+        if(personalsignature.length()==0){
+            map.put("error_message","个性签名不能为空");
+            return map;
+        }
+        if(hobby.length()==0){
+            map.put("error_message","爱好不得为空");
             return map;
         }
         User user1=userMapper.selectById(user.getId());

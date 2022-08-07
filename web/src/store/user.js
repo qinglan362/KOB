@@ -1,4 +1,6 @@
 import $ from 'jquery'
+import store from "@/store/index";
+//import {Modal} from "bootstrap";
 
 export default {
     state: {
@@ -42,6 +44,37 @@ export default {
         },
     },
     actions: {
+        updateinfo(context, data){
+            $.ajax({
+                url:"http://localhost:9090/user/account/updateinfo/",
+                type:'POST',
+                data:{
+                    personalsignature:data.personalsignature,
+                    age:data.age,
+                    hobby:data.hobby,
+                },
+                headers:{
+                    Authorization: "Bearer "+context.state.token,
+                },
+                success(resp){
+                    if (resp.error_message === "success") {
+                        store.dispatch("getinfo",{
+                            success(){
+                              data.success(resp);
+                            },
+                            error(){
+                               data.error(resp);
+                            },
+                        })
+                    } else {
+                        data.error(resp);
+                    }
+                },
+                error(resp){
+                  data.error(resp);
+                }
+            })
+        },
         login(context, data) {
             $.ajax({
                 url: "http://localhost:9090/user/account/token/",
@@ -60,6 +93,7 @@ export default {
                     }
                 },
                 error(resp) {
+                    console.log(data.username);
                     data.error(resp);
                 }
             });
