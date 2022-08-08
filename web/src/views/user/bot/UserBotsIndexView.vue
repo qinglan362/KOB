@@ -58,6 +58,7 @@
             <tr>
               <th>名称</th>
               <th>Bot简介</th>
+              <th>天梯分</th>
               <th>创建时间</th>
               <th>操作</th>
             </tr>
@@ -66,6 +67,7 @@
           <tr v-for="bot in bots" :key="bot.id">
               <td>{{bot.title}}</td>
               <td>{{bot.description}}</td>
+             <td>{{bot.rating}}</td>
              <td>{{bot.createtime}}</td>
                <td>
                  <button type="button" class="btn btn-secondary"  data-bs-toggle="modal" :data-bs-target="'#updatebot-'+bot.id">修改</button>
