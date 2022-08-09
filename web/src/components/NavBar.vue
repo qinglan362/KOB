@@ -5,19 +5,22 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link :to="{name:'pk_index'}" :class="route_name=='pk_index'?'nav-link active':'nav-link'" aria-current="page">对战</router-link>
+            <router-link :to="{name:'pk_index'}" :class="route_name==='pk_index'?'nav-link active':'nav-link'" aria-current="page">对战</router-link>
           </li>
           <li class="nav-item">
-            <router-link :class="route_name=='ranklist_index'?'nav-link active':'nav-link'" :to="{name:'ranklist_index'}">对局列表</router-link>
+            <router-link :class="route_name==='ranklist_index'?'nav-link active':'nav-link'" :to="{name:'ranklist_index'}">对局列表</router-link>
           </li>
           <li class="nav-item">
-            <router-link :class="route_name=='record_index'?'nav-link active':'nav-link'" :to="{name:'record_index'}">排行榜</router-link>
+            <router-link :class="route_name==='record_index'?'nav-link active':'nav-link'" :to="{name:'record_index'}">排行榜</router-link>
           </li>
           <li class="nav-item">
-            <router-link :class="route_name=='SmallGame'?'nav-link active':'nav-link'" :to="{name:'SmallGame'}">For...</router-link>
+            <router-link :class="route_name==='SmallGame'?'nav-link active':'nav-link'" :to="{name:'SmallGame'}">For...</router-link>
           </li>
         </ul>
         <ul class="navbar-nav" v-if="$store.state.user.is_login">
+          <li>
+            <img :src="$store.state.user.photo" alt="" class="perimage ">
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{$store.state.user.username}}
@@ -68,5 +71,9 @@ export default {
 </script>
 
 <style scoped>
-
+.perimage{
+  width: 40px;
+  margin-top: 10px;
+  border-radius:20px;
+}
 </style>

@@ -68,6 +68,7 @@ export default {
                         })
                     } else {
                         data.error(resp);
+                        console.log(resp.error_message);
                     }
                 },
                 error(resp){
