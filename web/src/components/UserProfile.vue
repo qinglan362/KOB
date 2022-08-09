@@ -3,7 +3,6 @@
     <div class="col-4">
       <div class="card" style="margin-top: 20px">
         <div class="card-body">
-
           <img :src="$store.state.user.photo" style="width: 100%" alt="">
         </div>
       </div>
@@ -16,17 +15,17 @@
               <div>个性签名:{{$store.state.user.personalsignature}}</div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" style="margin-top: 10px">
             <div class="card-body">
               <div style="margin-top: 5px">年龄:{{$store.state.user.age}}</div>
             </div>
           </div>
-          <div class="card">
+          <div class="card" style="margin: 10px 0 10px 0">
             <div class="card-body">
               <div style="margin-top: 5px">爱好:{{$store.state.user.hobby}}</div>
             </div>
           </div>
-          <button style="width: 100%" type="button" class="btn btn-primary float-end"  data-bs-toggle="modal" data-bs-target="#updateperinfo">
+          <button  style="width: 100% " type="button" class="btn btn-primary float-end"  data-bs-toggle="modal" data-bs-target="#updateperinfo">
             修改个人信息
           </button>
         </div>
