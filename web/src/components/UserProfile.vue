@@ -3,6 +3,7 @@
     <div class="col-4">
       <div class="card" style="margin-top: 20px">
         <div class="card-body">
+
           <img :src="$store.state.user.photo" style="width: 100%" alt="">
         </div>
       </div>
