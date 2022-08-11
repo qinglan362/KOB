@@ -25,11 +25,20 @@ public class UserInfoServiceImpl implements UserInfoService {
                         .getAuthentication();
         UserDetailsImpl loginUser=(UserDetailsImpl) authenticationToken.getPrincipal();
         User user=loginUser.getUser();
+        Map<String,String> map=new HashMap<>();
         System.out.println(data);
+        if(data.get("age")==null||data.get("age").equals("")){
+            map.put("error_message","age不能为空");
+            return map;
+        }
+        if(data.get("username")==null||data.get("username").equals("")){
+            map.put("error_message","username不能为空");
+            return map;
+        }
         int age=Integer.parseInt(data.get("age"));
         String personalsignature=data.get("personalsignature");
         String hobby=data.get("hobby");
-        Map<String,String> map=new HashMap<>();
+        String username=data.get("username");
         if(age<=0){
             map.put("error_message","年龄不能小于0");
             return map;
@@ -58,7 +67,7 @@ public class UserInfoServiceImpl implements UserInfoService {
         }
         User new_user=new User(
                 user1.getId(),
-                user1.getUsername(),
+                username,
                 user1.getPassword(),
                 user1.getPhoto(),
                 personalsignature,

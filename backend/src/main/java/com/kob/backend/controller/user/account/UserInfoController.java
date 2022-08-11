@@ -14,7 +14,6 @@ public class UserInfoController {
     private UserInfoService userInfoService;
     @PostMapping("/user/account/updateinfo/")
     public Map<String,String> update(@RequestParam Map<String,String> data){
-        System.out.println("Fsafas"+data);
         return userInfoService.update(data);
     }
 }

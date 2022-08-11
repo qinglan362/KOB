@@ -44,6 +44,32 @@ export default {
         },
     },
     actions: {
+
+         changepassword(context,data){
+                $.ajax({
+                    url:'http://localhost:9090/user/account/changePassword/',
+                    type:'post',
+                    data:{
+                        oldPassword:data.oldPassword,
+                        newPassword:data.newPassword,
+                    },
+                    headers:{
+                        Authorization: "Bearer "+context.state.token,
+                    },
+                    success(resp){
+                        if(resp.error_message==="success") {
+                            store.commit("logout");
+                        }
+                        else {
+                            data.error(resp);
+                        }
+                       console.log(resp.error_message);
+                    },
+                    error:function(resp){
+                       data.error(resp);
+                    }
+                })
+        },
         updateinfo(context, data){
             $.ajax({
                 url:"http://localhost:9090/user/account/updateinfo/",
@@ -52,6 +78,7 @@ export default {
                     personalsignature:data.personalsignature,
                     age:data.age,
                     hobby:data.hobby,
+                    username:data.username,
                 },
                 headers:{
                     Authorization: "Bearer "+context.state.token,
@@ -67,7 +94,7 @@ export default {
                             },
                         })
                     } else {
-                        data.error(resp);
+                        data.error(resp.error_message);
                         console.log(resp.error_message);
                     }
                 },

@@ -13,6 +13,8 @@
           <li class="nav-item">
             <router-link :class="route_name==='record_index'?'nav-link active':'nav-link'" :to="{name:'record_index'}">排行榜</router-link>
           </li>
+
+
           <li class="nav-item">
             <router-link :class="route_name==='SmallGame'?'nav-link active':'nav-link'" :to="{name:'SmallGame'}">For...</router-link>
           </li>
@@ -53,13 +55,14 @@
 import {useRoute} from 'vue-router';
 import {computed} from "vue";
 import {useStore} from "vuex";
-
 export default {
   name: "NavBar",
   setup(){
     const route=useRoute();
     const store=useStore();
-     let route_name=computed(()=>route.name);
+    let route_name=computed(()=>route.name);
+
+
      const logout=()=>{
          store.dispatch("logout");
      }

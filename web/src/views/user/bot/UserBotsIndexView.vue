@@ -1,12 +1,12 @@
 <template>
 <div class="container">
   <div class="row">
-    <div class="col-4">
+    <div class="col-5">
 <!--      名片部分-->
     <UserProfile></UserProfile>
 
     </div>
-    <div class="col-8">
+    <div class="col-7">
       <div class="card" style="margin-top: 20px">
         <div class="card-header">
           <span style="font-size: 120%">我的bot</span>
