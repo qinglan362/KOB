@@ -151,6 +151,7 @@ export default {
               if(resp.error_message==="success"){
                 Modal.getInstance("#changepassword").hide();
               }else{
+
                 cperror_message.value=resp.error_message;
               }
          },
@@ -175,7 +176,6 @@ export default {
               }
           },
           error(resp){
-            console.log(resp," 1 ",error_message.value," 1 ",error_message);
             error_message.value= resp;
           }
         })
