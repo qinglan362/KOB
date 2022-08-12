@@ -1,5 +1,6 @@
 import $ from 'jquery'
 import store from "@/store/index";
+import router from "@/router";
 //import {Modal} from "bootstrap";
 
 export default {
@@ -44,7 +45,6 @@ export default {
         },
     },
     actions: {
-
          changepassword(context,data){
                 $.ajax({
                     url:'http://localhost:9090/user/account/changePassword/',
@@ -58,6 +58,7 @@ export default {
                     },
                     success(resp){
                         if(resp.error_message==="success") {
+                            router.push({name:'home'});
                             store.commit("logout");
                         }
                         else {

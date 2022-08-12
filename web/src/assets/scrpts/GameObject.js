@@ -2,8 +2,9 @@ const AcGameObject=[];
 export class GameObject{
     constructor() {
         AcGameObject.push(this);
-        this.timedelta=0;
-        this.has_called_start=false;
+        this.timedelta = 0;
+        this.has_called_start = false;
+
     }
     start(){
 
